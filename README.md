@@ -28,29 +28,17 @@ LabVPCDefaultSecurityGroup: Outputs the default security group ID of the VPC.
 Notes and Suggestions:
 Private Subnet without NAT Gateway: Since this setup only includes an Internet Gateway but no NAT Gateway, instances in the private subnet cannot access the internet directly. Consider adding a NAT Gateway if internet access is required for private instances.
 
-Security Group Configuration: Allowing SSH (22) from 0.0.0.0/0 is potentially insecure. Use a more restrictive CIDR block, such as your public IP range, for better security.
+Secuty Group Configuration: Allowing SSH (22) from 0.0.0.0/0 is potentially insecure. Use a more restrictive CIDR block, such as your public IP range, for better security.
 
 IAM Role for EC2: To follow best practices, add an IAM Role with least privilege access for the EC2 instance, especially if it needs to communicate with AWS services.
 
 Public Subnet Option: If a public subnet is needed for better connectivity, you can add one with its own route table pointing to the Internet Gateway.
 
-Would you like help modifying this template to include these suggestions or address other use cases?
 
 
 
 
 
-
-You said:
-can you please correct the errors in the code
-ChatGPT said:
-ChatGPT
-Here is the corrected version of your YAML CloudFormation template. The original version had some minor errors or inconsistencies:
-
-Fixed AWS::EC2::SecurityGroup: The GroupName property isn't supported in a security group when defined in a CloudFormation template. It has been removed.
-Ensured Outputs syntax consistency.
-Updated comments for clarity.
-Here’s the corrected template:
 
 yaml
 Copy code
